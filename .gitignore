@@ -96,9 +96,6 @@ $RECYCLE.BIN/
 *.sqlite
 *.sqlite3
 
-# Entity Framework
-Migrations/
-
 # Logs
 logs/
 *.log
