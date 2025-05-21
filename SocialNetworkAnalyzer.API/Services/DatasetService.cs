@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using SocialNetworkAnalyzer.API.Data;
 using SocialNetworkAnalyzer.API.Data.Entities;
 using SocialNetworkAnalyzer.API.Models;
-using SocialNetworkAnalyzer.API.ViewModels;
 
 namespace SocialNetworkAnalyzer.API.Services
 {
@@ -137,7 +136,7 @@ namespace SocialNetworkAnalyzer.API.Services
             }
         }
 
-        public async Task<DatasetStatistics> GetDatasetStatisticsAsync(long datasetId)
+        public async Task<DatasetStatisticsDto> GetDatasetStatisticsAsync(long datasetId)
         {
             try
             {
@@ -149,7 +148,7 @@ namespace SocialNetworkAnalyzer.API.Services
 
                 if (totalUsers == 0)
                 {
-                    return new DatasetStatistics
+                    return new DatasetStatisticsDto
                     {
                         TotalUsers = 0,
                         AverageFriendsPerUser = 0
@@ -159,7 +158,7 @@ namespace SocialNetworkAnalyzer.API.Services
                 var totalFriendships = await GetTotalFriendshipsForDataset(datasetId);
                 var averageFriendsPerUser = CalculateAverageFriendsPerUser(totalFriendships, totalUsers);
 
-                return new DatasetStatistics
+                return new DatasetStatisticsDto
                 {
                     TotalUsers = totalUsers,
                     AverageFriendsPerUser = averageFriendsPerUser

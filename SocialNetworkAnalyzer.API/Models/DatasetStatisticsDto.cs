@@ -1,6 +1,6 @@
-namespace SocialNetworkAnalyzer.API.ViewModels;
+namespace SocialNetworkAnalyzer.API.Models;
 
-public class DatasetStatistics
+public class DatasetStatisticsDto
 {
     public int TotalUsers { get; set; }
     public double AverageFriendsPerUser { get; set; }

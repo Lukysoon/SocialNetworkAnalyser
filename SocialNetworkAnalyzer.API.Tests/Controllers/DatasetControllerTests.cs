@@ -6,7 +6,6 @@ using SocialNetworkAnalyzer.API.Controllers;
 using SocialNetworkAnalyzer.API.Data.Entities;
 using SocialNetworkAnalyzer.API.Models;
 using SocialNetworkAnalyzer.API.Services;
-using SocialNetworkAnalyzer.API.ViewModels;
 using System.Text;
 
 namespace SocialNetworkAnalyzer.API.Tests.Controllers;
@@ -207,7 +206,7 @@ public class DatasetControllerTests
     {
         // Arrange
         long datasetId = 1;
-        var statistics = new DatasetStatistics
+        var statistics = new DatasetStatisticsDto
         {
             TotalUsers = 5,
             AverageFriendsPerUser = 4.0
@@ -221,7 +220,7 @@ public class DatasetControllerTests
 
         // Assert
         var okResult = Assert.IsType<OkObjectResult>(result.Result);
-        var returnedStatistics = Assert.IsType<DatasetStatistics>(okResult.Value);
+        var returnedStatistics = Assert.IsType<DatasetStatisticsDto>(okResult.Value);
         Assert.Equal(statistics.TotalUsers, returnedStatistics.TotalUsers);
         Assert.Equal(statistics.AverageFriendsPerUser, returnedStatistics.AverageFriendsPerUser);
     }

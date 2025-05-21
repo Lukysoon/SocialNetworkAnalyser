@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using SocialNetworkAnalyzer.API.Data.Entities;
 using SocialNetworkAnalyzer.API.Models;
 using SocialNetworkAnalyzer.API.Services;
-using SocialNetworkAnalyzer.API.ViewModels;
 
 namespace SocialNetworkAnalyzer.API.Controllers
 {
@@ -63,7 +62,7 @@ namespace SocialNetworkAnalyzer.API.Controllers
         }
 
         [HttpGet("{id}/statistics")]
-        public async Task<ActionResult<DatasetStatistics>> GetDatasetStatistics(long id)
+        public async Task<ActionResult<DatasetStatisticsDto>> GetDatasetStatistics(long id)
         {
             try
             {
