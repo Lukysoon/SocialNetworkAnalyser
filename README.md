@@ -15,6 +15,7 @@ SocialNetworkAnalyser/
 ├── SocialNetworkAnalyzer.API/       # .NET Core backend
 │   ├── Controllers/                 # API endpoints
 │   ├── Data/                        # Database context and entities
+│   ├── Extensions/                  # Configuration extensions
 │   ├── Models/                      # DTOs for API communication
 │   ├── Services/                    # Business logic
 ├── social-network-analyzer-client/  # React frontend
