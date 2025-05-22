@@ -1,32 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using SocialNetworkAnalyzer.API.Data;
+using SocialNetworkAnalyzer.API.Extensions;
 using SocialNetworkAnalyzer.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-// Add CORS policy
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("ReactAppPolicy",
-        policy =>
-        {
-            policy.WithOrigins("http://localhost:3000")
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-        });
-});
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll",
-        builder =>
-        {
-            builder.AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader();
-        });
-});
+builder.Services.AddCorsConfiguration();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
