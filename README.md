@@ -40,7 +40,7 @@ SocialNetworkAnalyser/
 ```json
 {
   "ConnectionStrings": {
-    "SocialDatabase": "Server=(localdb)\\mssqllocaldb;Database=SocialNetworkAnalyzer;Trusted_Connection=True;"
+    "SocialDatabase": "Data Source=localhost,1433;Initial Catalog=SocialNetworkAnalyser;User Id=sa;Password=TohleJeTvojeHeslo;"
   }
 }
 ```
