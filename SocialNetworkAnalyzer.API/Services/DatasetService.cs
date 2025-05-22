@@ -37,7 +37,7 @@ public class DatasetService : IDatasetService
             await _context.SaveChangesAsync();
 
             var userIds = new HashSet<long>();
-            var friendships = new List<(long, long)>();
+            var friendships = new HashSet<(long, long)>();
             ParseUserAndRelationships(file, ref userIds, ref friendships);
 
             if (_context.Users.Any(u => userIds.Contains(u.Id)))
@@ -90,7 +90,7 @@ public class DatasetService : IDatasetService
         return dataset;
     }
 
-    private static IEnumerable<Friendship> ParseFriendships(List<(long, long)> friendships, long datasetId)
+    private static IEnumerable<Friendship> ParseFriendships(HashSet<(long, long)> friendships, long datasetId)
     {
         var friendshipEntities = friendships.Select(f => new Friendship
         {
@@ -111,7 +111,7 @@ public class DatasetService : IDatasetService
         return users;
     }
 
-    private static void ParseUserAndRelationships(IFormFile file, ref HashSet<long> userIds, ref List<(long, long)> friendships)
+    private static void ParseUserAndRelationships(IFormFile file, ref HashSet<long> userIds, ref HashSet<(long, long)> friendships)
     {
         using var streamReader = new StreamReader(file.OpenReadStream(), Encoding.UTF8, true, 512);
         int lineNumber = 0;
