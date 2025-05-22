@@ -22,7 +22,7 @@ namespace SocialNetworkAnalyzer.API.Services
         {
             return await _context.Datasets
                 .OrderByDescending(d => d.CreatedAt)
-                .Select(d => new DatasetGetDto(){Id = d.Id, Name = d.Name})
+                .Select(d => new DatasetGetDto(){Id = d.Id, Name = d.Name, CreatedAt = d.CreatedAt})
                 .ToListAsync();
         }
 
