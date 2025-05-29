@@ -86,6 +86,8 @@ The application accepts text files with the following format:
   ```
   This represents users 1, 2, 3, and 4, where user 1 is friends with 2 and 3, etc.
 
+  You can use "network-data.txt"
+
 ### Basic Workflow
 
 ### Available Statistics
